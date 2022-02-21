@@ -1,0 +1,82 @@
+let config = {
+	language: "en",
+	locale: "en-GB",
+	logLevel: ["INFO", "LOG", "WARN", "ERROR"], // Add "DEBUG" for even more logging
+	timeFormat: 24,
+	units: "metric",
+
+	modules: [
+		{
+			module: "alert",
+		},
+		{
+			module: "updatenotification",
+			position: "top_bar"
+		},
+		{
+			module: "clock",
+			position: "top_left"
+		},
+		{
+			module: "calendar",
+			header: "NL Holidays",
+			position: "top_left",
+			config: {
+				maximumEntries: 4,
+				calendars: [
+					{
+						symbol: "calendar-check",
+						url: "webcal://www.calendarlabs.com/ical-calendar/ics/101/Netherlands_Holidays.ics"
+					}
+				]
+			}
+		},
+                {
+			module: "MMM-QRCode",
+			position: "bottom_left",
+			header: "Scan to join WiFi",
+			config: {
+				text: "WIFI:T:WPA;S:" + ${QRCODE_WIFI_SSID} + ";P:" + ${QRCODE_WIFI_PASSWORD} + ";H:false;;", // mandatory config: encoded text
+				showRaw: false //  optional config: show text below QR
+			}
+		},
+		{
+			module: "MMM-OnThisDay",
+			position: "bottom_center",
+			config: {
+				maxWidth: "100%"
+			}
+		},
+		{
+			module: "MMM-Sonos",
+			position: "top_center",
+			config: {}
+		},
+		{
+			module: "weather",
+			position: "top_right",
+			config: {
+				weatherProvider: "openweathermap",
+				type: "current",
+				location: "Rotterdam, NL",
+				locationID: "2747891", //ID from http://bulk.openweathermap.org/sample/city.list.json.gz; unzip the gz file and find your city
+				apiKey: ${OPENWEATHERMAP_APIKEY}
+			}
+		},
+		{
+			module: "weather",
+			position: "top_right",
+			header: "Weather Forecast",
+			config: {
+				weatherProvider: "openweathermap",
+				type: "forecast",
+				location: "Rotterdam, NL",
+				locationID: "2747891", //ID from http://bulk.openweathermap.org/sample/city.list.json.gz; unzip the gz file and find your city
+				apiKey: ${OPENWEATHERMAP_APIKEY}
+			}
+		},
+	]
+};
+
+/*************** DO NOT EDIT THE LINE BELOW ***************/
+if (typeof module !== "undefined") {module.exports = config;}

@@ -9,6 +9,8 @@ services:
       # Customisation - only mount the files under source control, not entire dirs
       # \-> CSS
       - ./magicmirror/css/custom.css:/opt/magic_mirror/css/custom.css
+      # \-> config
+      - ./magicmirror/config/config.js.template:/opt/magic_mirror/config/config.js.template
       # \-> modules
       - ./magicmirror/modules/MMM-OnThisDay:/opt/magic_mirror/modules/MMM-OnThisDay
       - ./magicmirror/modules/MMM-QRCode:/opt/magic_mirror/modules/MMM-QRCode
@@ -23,6 +25,9 @@ services:
     environment:
       LD_LIBRARY_PATH: /opt/vc/lib
       DISPLAY: unix:0.0
+      OPENWEATHERMAP_APIKEY: $OPENWEATHERMAP_APIKEY
+      QRCODE_WIFI_SSID: $QRCODE_WIFI_SSID
+      QRCODE_WIFI_PASSWORD: $QRCODE_WIFI_PASSWORD
     network_mode: host
     shm_size: "128mb"
     command:
