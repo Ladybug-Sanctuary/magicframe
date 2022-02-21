@@ -1,0 +1,9 @@
+[submodule "magicmirror/modules/MMM-OnThisDay"]
+	path = magicmirror/modules/MMM-OnThisDay
+	url = https://github.com/nkl-kst/MMM-OnThisDay.git
+[submodule "magicmirror/modules/MMM-QRCode"]
+	path = magicmirror/modules/MMM-QRCode
+	url = https://github.com/evghenix/MMM-QRCode.git
+[submodule "magicmirror/modules/MMM-Sonos"]
+	path = magicmirror/modules/MMM-Sonos
+	url = https://github.com/CFenner/MMM-Sonos

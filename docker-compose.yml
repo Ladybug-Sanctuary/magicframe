@@ -9,6 +9,10 @@ services:
       # Customisation - only mount the files under source control, not entire dirs
       # \-> CSS
       - ./magicmirror/css/custom.css:/opt/magic_mirror/css/custom.css
+      # \-> modules
+      - ./magicmirror/modules/MMM-OnThisDay:/opt/magic_mirror/modules/MMM-OnThisDay
+      - ./magicmirror/modules/MMM-QRCode:/opt/magic_mirror/modules/MMM-QRCode
+      - ./magicmirror/modules/MMM-Sonos:/opt/magic_mirror/modules/MMM-Sonos
       # Bind system files and folders
       - /tmp/.X11-unix:/tmp/.X11-unix
       - /opt/vc:/opt/vc/:ro
