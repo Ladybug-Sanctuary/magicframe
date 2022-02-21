@@ -6,6 +6,10 @@ services:
     container_name: magicmirror
     restart: unless-stopped
     volumes:
+      # Customisation - only mount the files under source control, not entire dirs
+      # \-> CSS
+      - ./magicmirror/css/custom.css:/opt/magic_mirror/css/custom.css
+      # Bind system files and folders
       - /tmp/.X11-unix:/tmp/.X11-unix
       - /opt/vc:/opt/vc/:ro
       - /usr/bin/vcgencmd:/usr/bin/vcgencmd
